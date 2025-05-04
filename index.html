@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Você ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #ffebee;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #d81b60;
+        }
+
+        .container {
+            text-align: center;
+            z-index: 10;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-container {
+            width: 170px;
+            height: 200px;
+            margin: 20px auto;
+            border: 5px solid #ff4081;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 64, 129, 0.5);
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .video-container img {
+            
+            max-width: 100%;
+            max-height: 110%;
+        }
+
+        .frase-romantica {
+            font-size: 1.5em;
+            margin-top: 20px;
+            font-style: italic;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .heart {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: #ff4081;
+            transform: rotate(45deg);
+            animation: fall linear infinite;
+            opacity: 0.7;
+        }
+
+        .heart:before, .heart:after {
+            content: '';
+            width: 30px;
+            height: 30px;
+            background-color: #ff4081;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .heart:before {
+            top: -15px;
+            left: 0;
+        }
+
+        .heart:after {
+            top: 0;
+            left: -15px;
+        }
+
+        @keyframes fall {
+            to {
+                top: 100vh;
+            }
+        }
+        /* ////////// */
+        .heart-button {
+        display: inline-block;
+        background-color: #ff4081;
+        color: white;
+        padding: 12px 25px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: bold;
+        margin-top: 20px;
+        position: relative;
+        transition: all 0.3s;
+        box-shadow: 0 4px 8px rgba(255, 64, 129, 0.3);
+    }
+
+    .heart-button:hover {
+        transform: scale(1.05);
+        background-color: #e91e63;
+        box-shadow: 0 6px 12px rgba(233, 30, 99, 0.4);
+    }
+
+    .heart-button:before {
+        content: "❤️";
+        margin-right: 8px;
+    }
+    /* /////////// jogo*/
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>De: Frufru😊❤️</h1>
+        <h1>Para: A Frofro❤️😊</h1>
+        
+        <div class="video-container">
+            <img src="./img/WhatsApp Image 2025-05-04 at 12.12.59 (1).jpeg" alt="...">
+        </div>
+        
+        <p class="frase-romantica">
+            "‘Mulher virtuosa, quem a achará?’ – e eu te achei. Suas mãos trabalham com bondade, sua fala traz sabedoria, seu sorriso vale mais que rubis. Até o vento sussurra seu nome com respeito. Você é a resposta às minhas preces escondidas." 💍🙏💖
+        </p>
+
+        <a href="https://www.youtube.com/watch?v=C7EEK7GLD0s" class="heart-button">Clique aqui</a>
+    </div>
+    <br>
+    <!-- ///////// -->
+    
+
+    <script>
+        // Cria corações caindo
+        function createHearts() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = -30 + 'px';
+            heart.style.opacity = Math.random() * 0.7 + 0.3;
+            heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+            heart.style.width = Math.random() * 20 + 10 + 'px';
+            heart.style.height = heart.style.width;
+            
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+        
+        // Cria vários corações
+        setInterval(createHearts, 300);
+        ///jogo
+        
+    </script>
+</body>
+</html>
