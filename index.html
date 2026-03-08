@@ -3,266 +3,327 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Feliz Aniversário! 🎂</title>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+
+<title>Feliz Aniversário Rayssa 🎂</title>
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --bg: hsl(260,20%,8%);
-  --fg: hsl(40,60%,90%);
-  --card: hsl(260,15%,12%);
-  --gold: hsl(42,90%,55%);
-  --rose: hsl(330,60%,50%);
-  --muted: hsl(260,15%,18%);
-  --muted-fg: hsl(40,20%,60%);
-}
-body{background:var(--bg);color:var(--fg);font-family:'Raleway',sans-serif;overflow-x:hidden}
-.container{max-width:640px;margin:0 auto;padding:48px 16px;position:relative;z-index:10}
 
-/* Ambient */
-.orb{position:fixed;border-radius:50%;filter:blur(80px);pointer-events:none}
-.orb1{top:20%;left:15%;width:380px;height:380px;background:var(--gold);opacity:.18}
-.orb2{bottom:15%;right:10%;width:320px;height:320px;background:var(--rose);opacity:.12}
-
-/* Confetti */
-.confetti-piece{position:fixed;top:-20px;border-radius:2px;pointer-events:none;z-index:50;animation:confetti-fall linear infinite}
-@keyframes confetti-fall{0%{transform:translateY(-10vh) rotate(0deg);opacity:1}100%{transform:translateY(110vh) rotate(720deg);opacity:0}}
-
-/* Glow */
-@keyframes glow-pulse{0%,100%{text-shadow:0 0 20px hsla(42,90%,55%,.5),0 0 40px hsla(42,90%,55%,.3)}50%{text-shadow:0 0 40px hsla(42,90%,55%,.8),0 0 80px hsla(42,90%,55%,.5)}}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
-@keyframes spin-slow{from{transform:rotate(0)}to{transform:rotate(360deg)}}
-@keyframes slide-up{from{opacity:0;transform:translateY(50px) perspective(800px) rotateX(8deg)}to{opacity:1;transform:translateY(0) perspective(800px) rotateX(0)}}
-
-.animate-glow{animation:glow-pulse 2s ease-in-out infinite}
-.animate-float{animation:float 4s ease-in-out infinite}
-.slide-up{animation:slide-up .8s ease-out forwards;opacity:0}
-
-/* Glass */
-.glass{background:hsla(260,15%,12%,.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid hsla(42,90%,55%,.15);border-radius:24px}
-
-/* Card 3D */
-.card-3d{transform-style:preserve-3d;perspective:1000px;transition:transform .5s}
-.card-3d:hover{transform:rotateY(5deg) rotateX(3deg) scale(1.02)}
-
-/* Header */
-.header{text-align:center;margin-bottom:64px}
-.sparkle-icon{color:var(--gold);font-size:28px;margin-bottom:12px;display:inline-block;animation:float 4s ease-in-out infinite}
-.title{font-family:'Great Vibes',cursive;font-size:clamp(3.5rem,10vw,6rem);color:var(--gold);line-height:1.1}
-.subtitle{font-family:'Playfair Display',serif;font-size:14px;letter-spacing:4px;text-transform:uppercase;color:var(--muted-fg);margin-top:12px;display:flex;align-items:center;justify-content:center;gap:8px}
-.star{color:var(--gold)}
-
-/* Carousel */
-.carousel-wrap{position:relative;max-width:460px;margin:0 auto 64px;perspective:1200px}
-.carousel-inner{position:relative;aspect-ratio:1;border-radius:20px;overflow:hidden;transform:rotateY(-3deg) rotateX(2deg);box-shadow:0 25px 60px -15px hsla(42,90%,55%,.3),0 0 40px hsla(330,60%,50%,.1);border:1px solid hsla(42,90%,55%,.2)}
-.carousel-slide{position:absolute;inset:0;transition:all .7s ease;opacity:0;transform:scale(.8) rotateY(30deg)}
-.carousel-slide.active{opacity:1;transform:scale(1) rotateY(0)}
-.carousel-slide img{width:100%;height:100%;object-fit:cover}
-.slide-caption{position:absolute;bottom:0;left:0;right:0;padding:24px;background:linear-gradient(to top,hsla(260,20%,8%,.9),transparent);font-family:'Playfair Display',serif;font-size:16px}
-.carousel-btn{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--gold);transition:transform .2s;background:hsla(260,15%,12%,.6);backdrop-filter:blur(20px);border:1px solid hsla(42,90%,55%,.15)}
-.carousel-btn:hover{transform:translateY(-50%) scale(1.1)}
-.carousel-btn.prev{left:-20px}
-.carousel-btn.next{right:-20px}
-.dots{display:flex;justify-content:center;gap:8px;margin-top:20px}
-.dot{width:10px;height:10px;border-radius:50%;border:none;cursor:pointer;background:var(--muted);transition:all .3s}
-.dot.active{background:var(--gold);transform:scale(1.4)}
-
-/* Message */
-.message-box{padding:40px;margin-bottom:64px}
-.message-box h2{font-family:'Great Vibes',cursive;font-size:2.5rem;color:var(--gold);text-align:center;margin-bottom:24px}
-.message-box .icon-center{text-align:center;margin-bottom:16px;color:var(--gold)}
-.message-box p{text-align:center;line-height:1.8;margin-bottom:16px;color:hsla(40,60%,90%,.8)}
-.message-box p strong{color:var(--gold)}
-.message-box .quote{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--rose);font-style:italic}
-.message-box .final{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--gold);margin-top:24px}
-
-/* Music Player */
-.player-section h2{font-family:'Great Vibes',cursive;font-size:2rem;color:var(--gold);text-align:center;margin-bottom:24px}
-.player{max-width:400px;margin:0 auto 64px;padding:28px}
-
-.vinyl-wrap{display:flex;justify-content:center;margin-bottom:24px}
-.vinyl{width:128px;height:128px;border-radius:50%;background:linear-gradient(135deg,var(--muted),var(--bg));border:4px solid var(--muted);display:flex;align-items:center;justify-content:center;position:relative;box-shadow:inset 0 0 30px hsla(260,15%,5%,.5),0 0 20px hsla(42,90%,55%,.15)}
-.vinyl.spinning{animation:spin-slow 8s linear infinite}
-.vinyl-center{width:48px;height:48px;border-radius:50%;background:hsla(42,90%,55%,.2);border:2px solid hsla(42,90%,55%,.3);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:18px}
-.groove{position:absolute;border-radius:50%;border:1px solid hsla(40,20%,60%,.1)}
-.groove1{inset:16px}.groove2{inset:32px}.groove3{inset:48px}
-
-.song-info{text-align:center;margin-bottom:16px}
-.song-info h3{font-family:'Playfair Display',serif;font-size:1.1rem}
-.song-info p{font-size:.85rem;color:var(--muted-fg)}
-
-.progress-bar{width:100%;height:6px;background:var(--muted);border-radius:99px;overflow:hidden;margin-bottom:4px;cursor:pointer}
-.progress-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--gold),var(--rose));transition:width .3s}
-.time-row{display:flex;justify-content:space-between;font-size:.75rem;color:var(--muted-fg);margin-bottom:16px}
-
-.controls{display:flex;align-items:center;justify-content:center;gap:24px}
-.ctrl-btn{background:none;border:none;cursor:pointer;color:var(--muted-fg);transition:all .2s;font-size:20px;padding:4px}
-.ctrl-btn:hover{color:var(--fg);transform:scale(1.1)}
-.ctrl-btn.liked{color:var(--rose)}
-.play-btn{width:56px;height:56px;border-radius:50%;border:none;cursor:pointer;background:linear-gradient(135deg,var(--gold),var(--rose));display:flex;align-items:center;justify-content:center;font-size:22px;color:var(--bg);box-shadow:0 8px 25px hsla(42,90%,55%,.4);transition:transform .2s}
-.play-btn:hover{transform:scale(1.08)}
-
-.footer{text-align:center;padding-bottom:32px;color:var(--muted-fg);font-size:.85rem}
-
-/* SVG icons inline */
-svg{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-
-.youtube-section{
-  text-align:center;
-  margin-top:40px;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
-.youtube-btn{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  padding:16px 28px;
-  font-size:16px;
-  font-weight:600;
-  border:none;
-  border-radius:40px;
-  cursor:pointer;
-  background:linear-gradient(135deg,var(--gold),var(--rose));
-  color:var(--bg);
-  box-shadow:0 8px 25px hsla(42,90%,55%,.4);
-  transition:transform .2s;
+body{
+font-family:Arial, Helvetica, sans-serif;
+background:linear-gradient(135deg,#ff4fa3,#7a4dff);
+color:white;
+min-height:100vh;
+overflow-x:hidden;
 }
 
-.youtube-btn:hover{
-  transform:scale(1.08);
+/* container */
+
+.container{
+max-width:900px;
+margin:auto;
+padding:40px 20px;
+text-align:center;
 }
+
+/* título */
+
+.title{
+font-size:60px;
+margin-bottom:10px;
+animation:glow 2s infinite alternate;
+}
+
+.subtitle{
+font-size:18px;
+opacity:.9;
+margin-bottom:40px;
+}
+
+@keyframes glow{
+
+from{
+text-shadow:0 0 10px #fff;
+}
+
+to{
+text-shadow:0 0 30px #ffb3ff;
+}
+
+}
+
+/* carousel */
+
+.carousel{
+position:relative;
+max-width:500px;
+margin:auto;
+overflow:hidden;
+border-radius:20px;
+box-shadow:0 20px 50px rgba(0,0,0,.3);
+}
+
+.carousel img{
+width:100%;
+display:none;
+}
+
+.carousel img.active{
+display:block;
+}
+
+/* botões */
+
+.btn{
+margin-top:30px;
+padding:15px 25px;
+border:none;
+border-radius:40px;
+background:white;
+color:#ff4fa3;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+}
+
+.btn:hover{
+transform:scale(1.1);
+}
+
+/* mensagem */
+
+.message{
+
+margin-top:50px;
+background:rgba(255,255,255,.15);
+backdrop-filter:blur(10px);
+padding:30px;
+border-radius:20px;
+
+}
+
+.message h2{
+font-size:35px;
+margin-bottom:20px;
+}
+
+.message p{
+line-height:1.7;
+margin-bottom:10px;
+}
+
+/* partículas */
+
+.particle{
+position:fixed;
+width:8px;
+height:8px;
+background:white;
+border-radius:50%;
+opacity:.6;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+
+from{
+transform:translateY(-10vh);
+}
+
+to{
+transform:translateY(110vh);
+}
+
+}
+
+/* flores */
+
+.flower{
+position:fixed;
+top:-50px;
+font-size:26px;
+pointer-events:none;
+animation:fallFlower linear forwards;
+}
+
+@keyframes fallFlower{
+
+0%{
+transform:translateY(-50px) rotate(0deg);
+opacity:1;
+}
+
+100%{
+transform:translateY(110vh) rotate(360deg);
+opacity:0;
+}
+
+}
+
+footer{
+margin-top:40px;
+opacity:.7;
+font-size:14px;
+}
+
 </style>
 </head>
+
 <body>
 
-<div class="orb orb1"></div>
-<div class="orb orb2"></div>
-<div id="confetti-container"></div>
-
 <div class="container">
-  <!-- Header -->
-  <div class="header slide-up">
-    <div class="sparkle-icon">✨</div>
-    <h1 class="title animate-glow">Feliz Aniversário!</h1>
-    <div class="subtitle"><span class="star">★</span> Um dia especial para alguém especial <span class="star">★</span></div>
-  </div>
 
-  <!-- Carousel -->
-  <div class="carousel-wrap slide-up" style="animation-delay:.2s">
-    <div class="carousel-inner">
-      <div class="carousel-slide active" data-index="0">
-        <img src="/img1.jpeg" alt="Foto 1">
-        <div class="slide-caption">✨</div>
-      </div>
-      <div class="carousel-slide" data-index="1">
-        <img src="/img2.jpeg" alt="Foto 2">
-        <div class="slide-caption">🌸</div>
-      </div>
-      <div class="carousel-slide" data-index="2">
-        <img src="/img3.jpeg" alt="Foto 3">
-        <div class="slide-caption">💕</div>
-      </div>
-      <div class="carousel-slide" data-index="3">
-        <img src="/img4.jpeg" alt="Foto 4">
-        <div class="slide-caption">😂🥳</div>
-      </div>
-      <div class="carousel-slide" data-index="4">
-        <img src="/img5.jpeg" alt="Foto 5">
-        <div class="slide-caption">🌷</div>
-      </div>
-    </div>
-    <button class="carousel-btn prev" onclick="prevSlide()">‹</button>
-    <button class="carousel-btn next" onclick="nextSlide()">›</button>
-    <div class="dots">
-      <button class="dot active" onclick="goSlide(0)"></button>
-      <button class="dot" onclick="goSlide(1)"></button>
-      <button class="dot" onclick="goSlide(2)"></button>
-      <button class="dot" onclick="goSlide(3)"></button>
-      <button class="dot" onclick="goSlide(4)"></button>
-    </div>
-  </div>
+<h1 class="title">🎂 Feliz Aniversário!</h1>
 
-  <!-- Message -->
-  <div class="message-box glass card-3d slide-up" style="animation-delay:.4s">
-    <div class="icon-center">🎂</div>
-    <h2>Para minha amiga querida</h2>
-    <p>Hoje é um dia muito especial, porque celebramos a existência de uma pessoa incrível — <strong>você!</strong></p>
-    <p>Que este novo ciclo seja repleto de alegrias, conquistas e momentos inesquecíveis. Você merece tudo de mais bonito que a vida pode oferecer. 🌟</p>
-    <p>Obrigada por ser essa amiga maravilhosa, por cada risada compartilhada, cada momento de apoio e cada memória que construímos juntas.</p>
-    <p class="quote">"A amizade é o ingrediente mais importante na receita da vida."</p>
-    <p class="final">Com todo carinho, feliz aniversário! 🎂💕✨</p>
-    <p class="final">senhorita rayssa!💕</p>
-  </div>
+<p class="subtitle">
+Um dia especial para alguém muito especial 💖
+</p>
 
-  <div class="youtube-section">
-  <button class="youtube-btn" onclick="openVideo()">
-    ▶ Assistir vídeo especial
-  </button>
+<!-- CARROSSEL -->
+
+<div class="carousel">
+
+<img src="/img1.jpeg" class="active">
+<img src="/img2.jpeg">
+<img src="/img3.jpeg">
+<img src="/img4.jpeg">
+<img src="/img5.jpeg">
+
 </div>
-    <br>
-  <div class="footer">
-    <p>Feito com 💛 para você</p>
-  </div>
+
+<button class="btn" onclick="nextImage()">
+Ver próxima foto
+</button>
+
+<!-- MENSAGEM -->
+
+<div class="message">
+
+<h2>Parabéns Rayssa 🌸</h2>
+
+<p>
+Hoje celebramos a vida de uma pessoa incrível.
+Que seu novo ciclo seja cheio de alegria,
+conquistas, sonhos realizados e muitos momentos felizes.
+</p>
+
+<p>
+Que Deus ilumine cada passo da sua jornada
+e que sua vida seja sempre cheia de amor,
+amizade e felicidade.
+</p>
+
+<p>
+E hoje também celebramos a força,
+a beleza e a importância das mulheres.
+</p>
+
+<p>
+🌷 Feliz Dia das Mulheres! 🌷
+</p>
+
+<p>
+Você merece tudo de mais bonito que existe neste mundo.
+</p>
+
+<p>
+💖 Feliz Aniversário! 💖
+</p>
+
+</div>
+
+<button class="btn" onclick="openVideo()">
+▶ Assistir vídeo especial
+</button>
+
+<footer>
+Feito com carinho 💜
+</footer>
+
 </div>
 
 <script>
-// ===== CONFETTI =====
-(function(){
-  const container = document.getElementById('confetti-container');
-  const colors = ['hsl(42,90%,55%)','hsl(330,60%,50%)','hsl(200,80%,60%)','hsl(120,60%,50%)','hsl(280,60%,60%)'];
-  for(let i=0;i<30;i++){
-    const p = document.createElement('div');
-    p.className='confetti-piece';
-    const size = 6+Math.random()*8;
-    p.style.cssText=`left:${Math.random()*100}%;width:${size}px;height:${size*.6}px;background:${colors[Math.floor(Math.random()*colors.length)]};animation-duration:${3+Math.random()*4}s;animation-delay:${Math.random()*5}s`;
-    container.appendChild(p);
-  }
-})();
 
-// ===== CAROUSEL =====
-let current = 0;
-const totalSlides = 5;
-const slides = document.querySelectorAll('.carousel-slide');
-const dots = document.querySelectorAll('.dot');
+/* CARROSSEL */
 
-function updateSlide(){
-  slides.forEach((s,i)=>{s.classList.toggle('active',i===current)});
-  dots.forEach((d,i)=>{d.classList.toggle('active',i===current)});
-}
-function nextSlide(){current=(current+1)%totalSlides;updateSlide()}
-function prevSlide(){current=(current-1+totalSlides)%totalSlides;updateSlide()}
-function goSlide(i){current=i;updateSlide()}
+let index = 0
 
-// Auto-advance
-setInterval(nextSlide, 4000);
+const images = document.querySelectorAll(".carousel img")
 
-// ===== MUSIC PLAYER =====
-let isPlaying = false;
-let isLiked = false;
+function nextImage(){
 
-function togglePlay(){
-  isPlaying=!isPlaying;
-  const btn = document.getElementById('playBtn');
-  const vinyl = document.getElementById('vinyl');
-  btn.textContent = isPlaying ? '⏸' : '▶';
-  vinyl.classList.toggle('spinning', isPlaying);
+images[index].classList.remove("active")
+
+index++
+
+if(index >= images.length){
+index = 0
 }
 
-function toggleLike(){
-  isLiked=!isLiked;
-  const btn = document.getElementById('likeBtn');
-  btn.textContent = isLiked ? '♥' : '♡';
-  btn.classList.toggle('liked', isLiked);
+images[index].classList.add("active")
+
 }
 
-function seekProgress(e){
-  const bar = e.currentTarget;
-  const pct = (e.offsetX / bar.offsetWidth)*100;
-  document.getElementById('progress').style.width = pct+'%';
-}
+/* VIDEO */
+
 function openVideo(){
-  window.open("https://youtu.be/Ox-PJ4WWBAE?si=qXtLbsivUUv0Biyr", "_blank");
+
+window.open(
+"https://youtu.be/Ox-PJ4WWBAE",
+"_blank"
+)
+
 }
+
+/* PARTICULAS */
+
+for(let i=0;i<40;i++){
+
+let p = document.createElement("div")
+
+p.className = "particle"
+
+p.style.left = Math.random()*100 + "vw"
+
+p.style.animationDuration = 3 + Math.random()*5 + "s"
+
+p.style.opacity = Math.random()
+
+document.body.appendChild(p)
+
+}
+
+/* FLORES CAINDO */
+
+function createFlower(){
+
+const flower = document.createElement("div")
+
+flower.className = "flower"
+
+flower.innerHTML = "🌸"
+
+flower.style.left = Math.random()*100 + "vw"
+
+flower.style.animationDuration = 5 + Math.random()*5 + "s"
+
+document.body.appendChild(flower)
+
+setTimeout(()=>{
+flower.remove()
+},9000)
+
+}
+
+setInterval(createFlower,400)
+
 </script>
+
 </body>
 </html>
